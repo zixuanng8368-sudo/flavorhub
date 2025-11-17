@@ -12,9 +12,6 @@
     <title>FlavorHub</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <?php 
-        include("include/navBar.php");
-    ?>
+    
 </body>
 </html>
