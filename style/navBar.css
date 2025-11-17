@@ -1,0 +1,47 @@
+.navBar{
+    position: absolute;
+    top: 0;
+    height: 10vh;
+    width: 100vw;
+    padding: 5px 30px;
+    background-color: blue;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+.navBar ul{
+    list-style: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.navBar ul li{
+    padding: 15px 20px;
+    margin: 15px;
+    border-radius: 30px;
+}
+
+.navBar li a{
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.navBar li a:link{
+    color: white;
+}
+
+.navBar li a:visited{
+    color:white;
+}
+
+.navBar li a:hover{
+    text-decoration: underline;
+}

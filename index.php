@@ -1,6 +1,7 @@
 <?php
     // include("include/connectDb.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,9 @@
     <link rel="stylesheet" href="style/navBar.css">
     <title>FlavorHub</title>
 </head>
-<body>
-    
+<body style="background-color: purple;">
+    <?php 
+        include("include/navBar.php");
+    ?>
 </body>
 </html>

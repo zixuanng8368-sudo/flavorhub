@@ -1,4 +1,4 @@
-body {
+.register-login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,6 @@ body {
     background-repeat: no-repeat;
     background-position: center 75%;
     background-size: cover;
-
 }
 
 .wrapper {
