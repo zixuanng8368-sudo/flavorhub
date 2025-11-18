@@ -47,6 +47,10 @@
     color: white;
 }
 
+.input-container input::{
+    color: transparent;
+}
+
 .input-container input::placeholder {
     color: white;
 }

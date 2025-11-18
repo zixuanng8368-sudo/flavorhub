@@ -7,8 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['login'])) {
 
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = htmlspecialchars($_POST['username']);
+        $password = htmlspecialchars($_POST['password']);
 
         $checkUsername = $conn->query("SELECT * FROM user WHERE username = '$username'");
         if($checkUsername->num_rows > 0) 
@@ -27,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     } 
     else if (isset($_POST['register'])) {
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $re_password = $_POST['re_password'];
+        $username = htmlspecialchars($_POST['username']);
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
+        $re_password = htmlspecialchars($_POST['re_password']);
 
         // Check if the name had been taken;
         $checkUsername = $conn->query("SELECT username FROM user WHERE username = '$username'");
