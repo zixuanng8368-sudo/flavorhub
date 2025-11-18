@@ -1,0 +1,65 @@
+<?php
+session_start();
+require_once 'include/connectDb.php';
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (isset($_POST['login'])) {
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $checkUsername = $conn->query("SELECT * FROM user WHERE username = '$username'");
+        if($checkUsername->num_rows > 0) 
+            {
+                $user = $checkUsername->fetch_assoc();
+                if(password_verify($password, $user["password"])) 
+                {
+                    $_SESSION["username"] = $user["username"];
+                    $_SESSION["email"] = $user["email"];
+                    Header("Location: index.php");
+                    exit();
+                }
+        }
+        $_SESSION["login_error"] = "Incorrect username or password";
+        Header("Location: login.php");
+        exit();
+    } 
+    else if (isset($_POST['register'])) {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $re_password = $_POST['re_password'];
+
+        // Check if the name had been taken;
+        $checkUsername = $conn->query("SELECT username FROM user WHERE username = '$username'");
+        $checkEmail = $conn->query("SELECT email FROM user WHERE email = '$email'");
+        if($checkUsername->num_rows > 0)
+        {
+            $_SESSION['register_error'] = 'The username had been taken';
+        }
+        // Check if email had been taken;
+        else if ($checkEmail->num_rows > 0) 
+        {
+            $_SESSION['register_error'] = 'The email had been taken';
+        }
+        // Check if both password is the same
+        else if($password != $re_password) 
+        {
+            $_SESSION['register_error'] = 'Both the password must be the same';
+        }
+        else
+        {
+            $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $conn->query("INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$hashedPassword')");
+
+            Header("Location: login.php");
+            exit();
+        }
+        
+        Header('Location: register.php');
+        exit();
+    }
+}
+?>

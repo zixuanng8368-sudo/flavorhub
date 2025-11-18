@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    session_start();
+
+    $errors = [
+        'register' => $_SESSION['register_error'] ?? ''
+    ];
+
+    unset($_SESSION['register_error']);
+
+    function showError($error) {
+    return !empty($error) ? "<p class='error-message'>$error</p>" : '';
+}
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -16,40 +29,42 @@
     <?php
     include("include/navBar.php");
     ?>
+
     <section class="register-login">
         <div class="wrapper">
-            <form action="#" method="post" name="registration-form">
+            <form action="register_login.php" method="post" name="registration-form">
 
                 <h1>Register</h1>
 
+                <?= showError($errors['register']); ?>
+
                 <div class="input-container">
-                    <input type="text" placeholder="Username" required autocomplete="name">
+                    <input type="text" placeholder="Username" name="username" required autocomplete="name" autofocus> 
                     <i class="fa-solid fa-user"></i>
                 </div>
 
                 <div class="input-container">
-                    <input type="email" placeholder="E-mail" required autocomplete="email">
+                    <input type="email" placeholder="E-mail" name="email" required autocomplete="email">
                     <i class="fa-solid fa-envelope"></i>
                 </div>
 
                 <div class="input-container">
-                    <input type="password" placeholder="Password" required autocomplete="new-password">
+                    <input type="password" placeholder="Password" name="password" required autocomplete="new-password">
                     <i class="fa-solid fa-lock"></i>
                 </div>
 
                 <div class="input-container">
-                    <input type="password" placeholder="Re-enter your password" required autocomplete="new-password">
+                    <input type="password" placeholder="Re-enter your password" name="re_password" required autocomplete="new-password">
                     <i class="fa-solid fa-lock"></i>
                 </div>
 
                 <div class="button-container">
-                    <input type="submit" class="submit-btn" value="Create Account">
+                    <button type="submit" class="submit-btn" name="register">Create Account</button>   
                 </div>
 
                 <div class="login-container">
                     <p>Already had an account? <a href="login.php">Login</a></p>
                 </div>
-
             </form>
         </div>
     </section>

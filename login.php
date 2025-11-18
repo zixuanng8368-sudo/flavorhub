@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    session_start();
+
+    $errors = [
+        'login' => $_SESSION['login_error'] ?? ''
+    ];
+
+    unset($_SESSION['login_error']);
+
+    function showError($error) {
+        return !empty($error) ? "<p class='error-message'>$error</p>" : '';
+    }
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -19,12 +32,12 @@
 
     <section class="register-login">
         <div class="wrapper">
-            <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="login-form">
+            <form action="register_login.php" method="post" class="login-form">
 
                 <h1>Login</h1>
-
+                <?= showError($errors['login']); ?>
                 <div class="input-container">
-                    <input type="text" placeholder="Username" name="username" autocomplete="name" required>
+                    <input type="text" placeholder="Username" name="username" autocomplete="name" required autofocus>
                     <i class="fa-solid fa-user"></i>
                 </div>
 
@@ -40,7 +53,7 @@
                 </div>
 
                 <div class="button-container">
-                    <input type="submit" value="Login" class="submit-btn">
+                    <button type="submit" name="login" class="submit-btn">Login</button>
                 </div>
 
                 <div class="no-account-container">

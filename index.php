@@ -1,5 +1,5 @@
 <?php
-    // include("include/connectDb.php");
+    //require_once 'connectDb.php';
 ?>
 
 <!DOCTYPE html>

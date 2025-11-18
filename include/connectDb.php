@@ -5,12 +5,11 @@ $db_pass = "";
 $db_database = "flavorhub";
 
 // Attempt connection
+try {
 $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_database);
-
-// Check for connection error
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+}
+catch (mysqli_sql_exception) {
+    echo "Database connection error";
 }
 
-echo "Connected successfully";
 ?>
