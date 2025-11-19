@@ -26,12 +26,16 @@
     <?php 
         include("include/navBar.php");
     ?>
-    <section class="sections" id="section1">
+    <section class="hero-section">
         <div class="welcome-message">
             <h1>Welcome, <span><?= strtoupper($username) ?></span></h1>
-            <p>This is the index page</p>
+            <h2>“Discover, Share, and Enjoy Delicious Recipes”</h2>
+            <h2>“Explore thousands of recipes from home cooks worldwide.”</h2>
+            <p>Free to use, Easy recipe uploads, Save recipe to your profile</p>
         </div>
+
     </section>
+
     
 </body>
 </html>

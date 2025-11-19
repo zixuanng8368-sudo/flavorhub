@@ -26,8 +26,6 @@
     text-align: center;
 }
 
-
-
 .wrapper .input-container {
     width: 100%;
     height: 50px;
@@ -108,26 +106,39 @@
     text-decoration: underline;
 }
 
-.wrapper .login-container{
+.wrapper .login-container {
     text-align: center;
     font-size: 0.9rem;
     margin: 20px 0px 15px;
 }
-.wrapper .login-container p a{
+
+.wrapper .login-container p a {
     color: white;
     font-weight: 600;
     text-decoration: none;
 }
 
-.wrapper .login-container p a:hover{
+.wrapper .login-container p a:hover {
     text-decoration: underline;
 }
 
-.error-message{
+.error-message {
     background-color: rgba(255, 0, 0, 0.3);
     padding: 12px;
     border-radius: 6px;
     font-size: 1.2rem;
     text-align: center;
     margin: 20px 0px;
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        width: 90%;
+        min-width: unset;
+        padding: 10px 20px;
+    }
+
+    .wrapper .input-container{
+        margin: 20px 0px;
+    }
 }
