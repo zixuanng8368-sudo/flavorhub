@@ -18,6 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 {
                     $_SESSION["username"] = $user["username"];
                     $_SESSION["email"] = $user["email"];
+
+                    if(isset($_POST["remember"]))
+                    {
+                        $token = bin2hex(random_bytes(16));
+                        setcookie("remember_me", $token, time() + (30 * 24 * 60 * 60),"/");
+                        $conn->query("UPDATE user SET token='$token' WHERE username ='$username'");
+                    }
                     Header("Location: index.php");
                     exit();
                 }

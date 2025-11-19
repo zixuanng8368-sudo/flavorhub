@@ -2,12 +2,24 @@
     session_start();
     require_once 'include/connectDb.php';
 
-    if(isset($_SESSION['username']))
+
+    if(!isset($_SESSION['username']))
     {
-        $username = $_SESSION['username'];
+        if(isset($_COOKIE['remember-me']))
+        {
+            $token = $_COOKIE['remember-me'];
+            $result = $conn->query("SELECT * FROM user where token='$result'");
+            
+            if($result->num_rows > 0)
+            {
+                $user = $result->fetch_assoc();
+                $_SESSION["username"] = $user["username"];
+            }
+        }
+        $username = 'user';
     }
     else{
-        $username = 'user';
+        $username = $_SESSION['username'];
     }
 ?>
 
