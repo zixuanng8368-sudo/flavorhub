@@ -1,71 +1,33 @@
 body{
     margin-top: 10vh;
-    background-color: blueviolet;
-    background-image: url("..img/background.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
+    background-image: url("../img/register-background.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 
     z-index: -10;
 }
 section{
-    height: 90vh;
+    height: 100vh;
     width: 100%;
-
+    padding: 3% 2%;
 
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     text-align: center;
     z-index: -5;
 }
 
-.welcome-message{
-    backdrop-filter: blur(20px);
-    background: transparent;
-    padding: 30px 20px;
-    border-radius: 20px;
-    border: 1px solid white;
-    box-shadow: 1px 1px 5px solid rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(20px);
+#section1{
+    background-image: url("../img/section1.jpg");
+    background-size: cover;
+    background-position: center 70%;
 }
 
-.welcome-message h1{
-    font-size: 4rem;
-    color: aliceblue;
-}
 
-.welcome-message span{
-    font-size: 3.8rem;
-    color: rgb(28, 160, 205);
-}
 
-.welcome-message p{
-    font-size: 3rem;
-    color: blue;
-    margin-bottom: 30px;
-}
-
-.welcome-message button{
-    background-color: rgb(78, 78, 221);
-    outline: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 2.5rem;
-    border-radius: 30px;
-    width: 70%;
-    height: auto;
-    padding: 20px 40px;
-    margin: 0px auto;
-    cursor: pointer;
-    display: none;
-
-}
-
-.welcome-message button.active{
-    display: block;;
-}
 
 
 

@@ -26,13 +26,13 @@
     <?php 
         include("include/navBar.php");
     ?>
-    <section>
+    <section class="sections" id="section1">
         <div class="welcome-message">
-            <h1>Welcome, <span><?= $username ?></span></h1>
+            <h1>Welcome, <span><?= strtoupper($username) ?></span></h1>
             <p>This is the index page</p>
-            <div class="button-container">
+            <!-- <div class="button-container">
                 <button class="<?= isset($_SESSION['username']) ? "active" : '' ?>"onclick="window.location.href='logout.php'">Logout</button>
-            </div>
+            </div> -->
         </div>
     </section>
     
