@@ -23,6 +23,7 @@
 .navBar .outer-container.right{
     overflow-x: auto;
     overflow-y: hidden;
+    scrollbar-gutter: stable auto;
 }
 
 .outer-container.right::-webkit-scrollbar{
