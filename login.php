@@ -2,6 +2,20 @@
 <html lang="en">
 <?php
     session_start();
+    require_once 'include/connectDb.php';
+
+    if(isset($_COOKIE["remember_me"]))
+    {
+        $token = $_COOKIE["remember_me"];
+        $result = $conn->query("SELECT * FROM user WHERE token='$token'");
+        if($result->num_rows > 0)
+        {
+            $user = $result->fetch_assoc();
+            $_SESSION["username"] = $user["username"];
+        }
+        Header("Location: index.php");
+        exit();
+    }
 
     $errors = [
         'login' => $_SESSION['login_error'] ?? ''
