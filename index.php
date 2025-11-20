@@ -24,6 +24,7 @@
     else{
         $username = $_SESSION['username'];
     }
+
 ?>
 
 <!DOCTYPE html>

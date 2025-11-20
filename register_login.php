@@ -25,12 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         setcookie("remember_me", $token, time() + (30 * 24 * 60 * 60 ),"/");
                         $conn->query("UPDATE user SET token='$token' WHERE username ='$username'");
                     }
-                    Header("Location: index.php");
+                    header("Location: index.php");
                     exit();
                 }
         }
         $_SESSION["login_error"] = "Incorrect username or password";
-        Header("Location: login.php");
+        header("Location: login.php");
         exit();
     } 
     else if (isset($_POST['register'])) {
@@ -61,11 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $conn->query("INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$hashedPassword')");
 
-            Header("Location: login.php");
+            header("Location: login.php");
             exit();
         }
         
-        Header('Location: register.php');
+        header('Location: register.php');
         exit();
     }
 }

@@ -13,7 +13,7 @@
             $user = $result->fetch_assoc();
             $_SESSION["username"] = $user["username"];
         }
-        Header("Location: index.php");
+        header("Location: index.php");
         exit();
     }
 
